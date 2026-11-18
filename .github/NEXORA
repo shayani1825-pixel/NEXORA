@@ -1,0 +1,24 @@
+name: NEXORA Python Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get source code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Check Python version
+        run: python --version
+
+      - name: Check project files
+        run: ls -la
